@@ -18,6 +18,8 @@
     /* others */
 --gradient-hero: rgba(47, 48, 58, 0.4);
 --icon-color: #AFB1B8;
+--anime-time-cubic: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 
 
@@ -93,7 +95,11 @@ img {
 
 /* header */
 
-
+.nav {
+    display: block;
+    padding-bottom: 32px;
+    padding-top: 32px;
+}
 
 .header-link {
     font-weight: 500;
@@ -101,12 +107,16 @@ img {
     line-height: calc(16/14);
     letter-spacing: 0.02em;
     color: var(--second-color-txt);
-}
+    position: relative;
+    padding-bottom: 32px;
+
+    transition: color var(--anime-time-cubic);
+  }
 
 .header-link:hover,
 .header-link:focus {
     color: var(--accent-color-txt);
-    cursor: pointer;
+    
 }
 
 .contact-link {
@@ -117,6 +127,8 @@ img {
     color: var(--main-color-txt);
     display: flex;
     align-items: center;
+
+    transition: color var(--anime-time-cubic);
 }
 
 .contact-link:hover,
@@ -137,8 +149,25 @@ img {
 
 }
 
-.header-list .link.current {
+.current {
     color: var(--accent-color-txt)
+}
+
+.current::after {
+   position: absolute;
+   bottom: 0;
+   left: 0;
+transform: translatey(6px);
+    content: "";
+    width: 100%;
+    height: 4px;
+    background-color: currentColor;
+    border-radius: 2px;
+
+}
+
+.header-item {
+    position: relative;
 }
    
 
@@ -161,7 +190,7 @@ img {
 }
 .contact-link:hover .icon-contact,
 .contact-link:focus .icon-contact {
-    fill: var(--accent-color-txt)
+    fill: currentColor
 }
 
 /* hero */
@@ -215,6 +244,7 @@ padding-top: 200px;
     cursor: pointer;
     padding: 10px 32px;
     border: none;
+    transition: background var(--anime-time-cubic);
 }
 
 .hero-btn:hover,
@@ -385,10 +415,9 @@ bottom: 0;
 }
 
 .teamcard-icon {
-    fill: var(--icon-color);
+    fill: currentColor;
+    
 }
-
-
 
 .teamcard-link {
     display: flex;
@@ -397,24 +426,24 @@ bottom: 0;
     width: 44px;
     height: 44px;
     border-radius: 50%;
-
+    color: var(--icon-color);
+    background-color: var(--white-color-txt);
+transition: background var(--anime-time-cubic), color var(--anime-time-cubic);
     /* outline: 1px solid red; */
 }
 
-.teamcard-link {
-    background-color: var(--white-color-txt);
-}
 
 
 .teamcard-link:hover,
 .teamcard-link:focus {
     background-color: var(--accent-color-txt);
+    color: var(--white-color-txt);
     
 }
 
 .teamcard-link:hover .teamcard-icon,
 .teamcard-link:focus .teamcard-icon {
-    fill: var(--white-color-txt);
+    fill: currentColor;
 }
 
 
@@ -443,12 +472,15 @@ bottom: 0;
     border: 1px solid var(--icon-color);
     border-radius: 4px;
     color: var(--icon-color);
+    transition: color var(--anime-time-cubic);
     
-
 }
 
-
-
+.clients-link:hover, 
+.clients-link:focus {
+    color: var(--accent-color-txt);
+    border-color: var(--accent-color-txt);
+}
 
 .clients-list {
     display: flex;
@@ -456,18 +488,9 @@ bottom: 0;
         margin-bottom: 94px;
 }
 .clients-icon {
-    fill: var(--icon-color);
+    fill: currentColor;
 }
-
-.clients-link:focus .clients-icon,
-.clients-link:hover .clients-icon {
-    fill: var(--accent-color-txt);
-}
-
-.clients-link:focus, 
-.clients-link:hover {
-    border-color: var(--accent-color-txt);
-}    
+  
 
 /* footer */
 .footer {
@@ -529,10 +552,8 @@ bottom: 0;
 }
 
 .footer-icon {
-    fill: var(--white-color-txt);
+    fill: currentColor;
 }
-
-
 
 .footer-link {
     display: flex;
@@ -541,12 +562,10 @@ bottom: 0;
     width: 44px;
     height: 44px;
     border-radius: 50%;
-
+background: rgba(255, 255, 255, 0.1);
+color: var(--white-color-txt);
+transition: background var(--anime-time-cubic);
     /* outline: 1px solid red; */
-}
-
-.footer-link {
-background: rgba(255, 255, 255, 0.1);;
 }
 
 
@@ -556,10 +575,8 @@ background: rgba(255, 255, 255, 0.1);;
 
 }
 
-.footer-link:hover .footer-icon,
-.footer-link:focus .footer-icon {
-    fill: var(--white-color-txt);
-}
+
+
 .footer-txt {
     font-weight: 700;
         font-size: 14px;
@@ -589,11 +606,14 @@ background: rgba(255, 255, 255, 0.1);;
     background: var(--light-bg-color);
     border-radius: 4px;
     padding: 6px 22px;
+    transition-property: color, background, box-shadow;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-portf:hover,
 .btn-portf:focus {
-    background-color: var(--accent-color-txt);
+    background: var(--accent-color-txt);
     color: var(--white-color-txt);
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
 }
