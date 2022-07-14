@@ -665,6 +665,39 @@ padding: 20px 24px;
 .portf-item:focus {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
+.portf-item {
+    
+    max-width: 370px;
+}
+
+.portf-desc {
+    font-weight: 400;
+        font-size: 18px;
+        line-height: calc(28/18);
+    letter-spacing: 0.03em;
+    color: var(--white-color-txt);
+    
+    
+}
+
+.portf-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateY(100%);
+padding: 63px 24px;
+background-color: rgba(33, 150, 243, 0.9);
+transition: transform 250ms linear;
+}
+
+.portf-box {
+    position: relative;
+    overflow: hidden;
+}
+
+    .portf-item:hover .portf-overlay {
+        transform: translateY(-0%);
+    }
 
 .portf-img {
     max-width: 100%;
@@ -672,4 +705,62 @@ padding: 20px 24px;
 
 .portf-title {
     margin-bottom: 4px;
+}
+
+/* modal window */
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+background-color: rgba(0, 0, 0, 0.2);
+
+opacity: 1;
+
+transition: opacity 250ms;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+min-width: 528px;
+min-height: 582px;
+background-color: #FFFFFF;
+box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 250ms;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    border-radius: 50%;
+    background: #FFFFFF;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        width: 30px;
+        height: 30px;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+    transform: translate(-25%, 25%);
+}
+
+.backdrop.is-hidden {
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+.backdrop.is-hidden .modal {
+    transform: translate(-50%, -50%) scale(0.3); 
 }
