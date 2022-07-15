@@ -139,8 +139,12 @@ img {
 .header-container {
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #ECECEC;
+    
+}
 
+.header {
+    
+        border-bottom: 1px solid #ECECEC;
 }
 
 .header-list {
@@ -323,7 +327,7 @@ padding-top: 200px;
 }
 
 .work {
-    margin-bottom: 188px;
+    padding-bottom: 94px;
 }
 
 .work-txt {
@@ -370,7 +374,7 @@ bottom: 0;
     text-align: center;
     letter-spacing: 0.03em;
     color: var(--second-color-txt);
-    margin-top: 94px;
+    padding-top: 94px;
     margin-bottom: 50px;
 }
 
@@ -639,7 +643,7 @@ transition: background var(--anime-time-cubic);
 .menu-btn-list {
     display: flex;
     justify-content: center;
-    margin-top: 99px;
+    padding-top: 99px;
     margin-bottom: 50px;
 }
 
@@ -652,7 +656,7 @@ transition: background var(--anime-time-cubic);
     flex-wrap: wrap;
     justify-content: space-between;
     row-gap: 29px;
-    margin-bottom: 94px;
+    padding-bottom: 94px;
 }
 .portf-txt-box {
     background: #FFFFFF;
